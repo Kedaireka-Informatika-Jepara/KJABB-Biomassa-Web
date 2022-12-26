@@ -15,6 +15,10 @@ class Tambahbiota extends CI_Controller
 
     public function registration()
     {
+        $this->form_validation->set_rules('id', 'Biota ID', 'required|trim|integer', [
+            'required' => 'ID Biota harus diisi',
+            'integer' => 'Masukan harus angka'
+        ]);
         $this->form_validation->set_rules('jenis', 'Jenis', 'required|trim', [
             'required' => 'Jenis biota harus diisi'
         ]);
@@ -41,6 +45,7 @@ class Tambahbiota extends CI_Controller
         } else {
 
             $data = [
+                'biota_id' => htmlspecialchars($this->input->post('id', true)),
                 'jenis_biota' => htmlspecialchars($this->input->post('jenis', true)),
                 'bobot' => htmlspecialchars($this->input->post('bobot', true)),
                 'jumlah_bibit' => htmlspecialchars($this->input->post('jumlah', true)),

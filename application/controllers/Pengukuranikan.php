@@ -19,35 +19,35 @@ class Pengukuranikan extends CI_Controller
         // $data['tampil'] = 
     }
 
-    public function hapus($biota_id)
+    public function hapus($pengukuran_id)
     {
-        $where = array('biota_id' => $biota_id);
-        $this->m_biota->hapus_data($where, 'biota');
-        redirect('biota');
+        $where = array('pengukuran_id' => $pengukuran_id);
+        $this->m_pengukuran->hapus_data($where, 'pengukuran');
+        redirect('pengukuranikan');
     }
 
-    public function edit($biota_id)
+    public function edit($pengukuran_id)
     {
-        $where = array('biota_id' => $biota_id);
-        $data['biota'] = $this->m_biota->edit_data($where, 'biota')->result();
-        $this->load->view('user/ubah_biota', $data);
+        $where = array('pengukuran_id' => $pengukuran_id);
+        $data['pengukuran'] = $this->m_pengukuran->edit_data($where, 'pengukuran')->result();
+        $this->load->view('user/ubah_pengukuran', $data);
     }
 
     public function update()
     {
         $data = [
-            'jenis_biota' => htmlspecialchars($this->input->post('jenis', true)),
+            'jenis_biota' => htmlspecialchars($this->input->post('jenis-bio', true)),
             'panjang' => htmlspecialchars($this->input->post('panjang', true)),
             'bobot' => htmlspecialchars($this->input->post('bobot', true)),
             'tanggal_ukur' => htmlspecialchars($this->input->post('tggl-ukur', true)),
-            'keramba_id' => htmlspecialchars($this->input->post('asl-keramba', true))
+            'user_id' => htmlspecialchars($this->db->insert('user', 'username'))
             ];
 
         $where = array(
-            'biota_id' => htmlspecialchars($this->input->post('biota_id', true))
+            'pengukuran_id' => htmlspecialchars($this->input->post('bio-id', true))
         );
 
-        $this->m_biota->update_data($where, $data, 'biota');
-        redirect('biota');
+        $this->m_pengukuran->update_data($where, $data, 'pengukuran');
+        redirect('pengukuranikan');
     }
 }

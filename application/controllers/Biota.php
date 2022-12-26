@@ -34,6 +34,7 @@ class Biota extends CI_Controller
     public function update()
     {
         $data = [
+            'biota_id' => htmlspecialchars($this->input->post('id', true)),
             'jenis_biota' => htmlspecialchars($this->input->post('jenis', true)),
             'bobot' => htmlspecialchars($this->input->post('bobot', true)),
             'panjang' => htmlspecialchars($this->input->post('panjang', true)),

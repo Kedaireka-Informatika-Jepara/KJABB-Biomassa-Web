@@ -1,6 +1,18 @@
 /*NAVIGASI*/
 * {
     font-family: Poppins !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: initial;
+
+}
+
+.bg-wlc {
+    width: 100%;
 }
 
 .nv{
@@ -99,4 +111,18 @@
 
 .row {
     width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+
+}
+
+.footer-awur {
+    box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	padding: 50px 50px 60px 50px;
+	margin-top: 80px;
 }
