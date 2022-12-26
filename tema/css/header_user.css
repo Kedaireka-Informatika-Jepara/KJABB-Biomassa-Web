@@ -48,11 +48,18 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+.bg-wlc, .wlc {
+    width: 100%;
+    display: flex;
+}
+
 .wlc h1{
     padding-top: 10%;
     /* padding-bottom: 4%;
     margin-top: 50px; */
+    width: 100%;
     font-size: 50px;
+    font-weight: 600;
     text-align: center;
     /* font-stretch: normal; */
     /* border: 20px; */
@@ -80,4 +87,16 @@
 }
 .feed a:hover{
     text-decoration: underline;
+}
+.measure a{
+    text-decoration: none;
+    color: #000000;
+}
+.measure a:hover{
+    text-decoration: underline;
+}
+
+
+.row {
+    width: 100%;
 }

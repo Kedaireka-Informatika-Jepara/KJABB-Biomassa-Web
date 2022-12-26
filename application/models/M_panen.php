@@ -7,20 +7,29 @@ class M_panen extends CI_Model
 		$this->load->database();
 	}
 
-    public function survival_rate_fish()
+    public function get_rate()
     {
-        $sql = "SELECT jumlah_hidup, jumlah_mati, (jumlah_hidup/(jumlah_hidup+jumlah_mati)) as survival_rate FROM panen ORDER BY activity_id";
-        return $this->db->query($sql);
+        // $sql = 
+        $this->db->select('(jumlah_hidup/(jumlah_hidup+jumlah_mati))*100');
+        $this->db->as('survival_rate');
+        $this->db->from('panen');
+        // $sql = "SELECT biota_id, tanggal_panen, panjang, bobot,
+        //         jumlah_hidup, jumlah_mati, keramba_id,
+        //         (jumlah_hidup/(jumlah_hidup+jumlah_mati))*100 AS survival_rate FROM panen ORDER BY activity_id";
+        return $query = $this->db->get();
+        
     }
 
     function tampil_data()
     {
-
+        // $sql = "SELECT (jumlah_hidup/(jumlah_hidup+jumlah_mati)) as survival_rate FROM panen ORDER BY activity_id";
+        // return $this->db->query($sql);
         $this->db->select('*');
         $this->db->from('panen');
         $this->db->join('biota', 'biota.biota_id = panen.biota_id');
         $this->db->join('keramba', 'keramba.keramba_id = panen.keramba_id');
         return $query = $this->db->get();
+        
     }
 
     function hapus_data($where, $table)

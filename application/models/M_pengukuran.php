@@ -5,7 +5,14 @@ class M_pengukuran extends CI_Model
     function tampil_data()
     {
 
-        return $this->db->get('pengukuran');
+        // return $this->db->get('pengukuran');
+
+        $this->db->select('*');
+        $this->db->from('pengukuran');
+        $this->db->join('biota', 'pengukuran.biota_id = biota.biota_id');
+        $query = $this->db->get();
+        return $query;
+
     }
 
     function hapus_data($where, $table)

@@ -33,7 +33,7 @@ class Tambahpakan extends CI_Controller
             ];
 
             $this->db->insert('pakan', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-info">Anda berhasil melakukan perubahan!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success fade in">Anda berhasil melakukan perubahan!</div>');
             redirect('pakan');
             
             return true;

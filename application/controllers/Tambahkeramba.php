@@ -38,7 +38,7 @@ class Tambahkeramba extends CI_Controller
 
             $this->db->insert('keramba', $data);
             
-            $this->session->set_flashdata('message', '<div class="alert alert-info">Anda berhasil melakukan perubahan!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success fade in">Anda berhasil melakukan perubahan!</div>');
             redirect('keramba');
             return true;
         }

@@ -9,7 +9,7 @@ class Tambahpengukuran extends CI_Controller
 
     public function index()
     {
-        $this->load->view('user/tambah_pengukuran');
+        $this->load->view('user/tambahpengukuran');
         $this->load->view('lib/header');
     }
 
@@ -25,17 +25,17 @@ class Tambahpengukuran extends CI_Controller
             'decimal' => 'Bilangan harus desimal'
         ]);
         $this->form_validation->set_rules('tggl-ukur', 'Tggl-ukur', 'required|trim', [
-            'required' => 'Tanggal tebar harus diisi'
+            'required' => 'Tanggal ukur harus diisi'
         ]);
         $this->form_validation->set_rules('bio-id', 'Bio-id', 'required|trim', [
             'required' => 'Biota ID harus diisi'
         ]);
-        $this->form_validation->set_rules('use-id', 'Use-id', 'required|trim', [
-            'required' => 'Biota ID harus diisi'
+        $this->form_validation->set_rules('use-id', 'User-id', 'required|trim', [
+            'required' => 'User ID harus diisi'
         ]);
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('user/tambah_pengukuran');
+            $this->load->view('user/tambahpengukuran');
         } else {
 
             $data = [
@@ -46,14 +46,15 @@ class Tambahpengukuran extends CI_Controller
                 'user_id' => htmlspecialchars($this->input->post('use_id', true))
             ];
 
-            if (!$this->db->insert('pengukuran', $data)) {
-                $msg = $this->db->error();
-                throw new Exception($msg['message'], $msg['code']);
-            } else {
-                return $this->db->affected_rows();
-            }                
-            $this->db->get('biota');
-            $this->session->set_flashdata('message', '<div class="alert alert-info">Anda berhasil melakukan perubahan!</div>');
+            // if (!$this->db->insert('pengukuran', $data)) {
+            //     $msg = $this->db->error();
+            //     throw new Exception($msg['message'], $msg['code']);
+            // } else {
+            //     return $this->db->affected_rows();
+            // }          
+            $this->db->insert('pengukuran', $data);      
+            $this->db->get('biota', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success fade in">Anda berhasil melakukan perubahan!</div>');
             redirect('pengukuranikan');
             return true;
         }

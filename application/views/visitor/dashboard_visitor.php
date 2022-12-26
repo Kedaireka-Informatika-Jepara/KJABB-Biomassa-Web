@@ -17,6 +17,7 @@
     </style>
 
     <link rel="stylesheet" href=" <?php echo base_url(); ?>tema/css/header_visitor.css">
+    <link rel="icon" type="image/png" href="tema/img/fish.png" sizes="32x32"/>
     <title>Dashboard</title>
 </head>
 
@@ -29,7 +30,7 @@
                 <div class="col-xxl-12 py-5" style="background-image: url(<?php echo base_url() ?>tema/img/karimun.jpg); background-size: cover;">
                     <div class="bg-wlc">
                         <div class="wlc">
-                            <h1>SELAMAT DATANG DI WEBSITE MONITORING BIOMASSA IKAN KERAMBA JARING APUNG BERTINGKAT BULAT (KJABB)</h1>
+                            <h1>Selamat Datang di Sistem Monitoring Biomassa Ikan</h1>
                         </div>
                     </div>
                 </div>
@@ -41,32 +42,48 @@
     <main class="container text-blue">
         <div class="row">
             <div class="col-md-4 py-5">
-                <img class="w-100" src="<?php echo base_url() ?>tema/img/panen.jpg" alt="gambar alam">
+                <img class="w-100" src="<?php echo base_url(); ?>tema/img/panen.jpg" alt="panen ikan">
             </div>
             <div class="col-md-8 py-5">
-                <h1 class="crop"><a href="<?php echo base_url(); ?>login">Hasil Monitoring Biomassa Ikan
-                        Pada Bulan September</a></h1>
-                <p>Pada bulan september hasil menunjukan bahwa ikan mengalami pertumbuhan yang pesat dibandingkan dengan bulan juni. Faktor pakan memungkinkan ikan untuk tumbuh lebih cepat.</p>
+                <h1 class="crop"><a href="<?php echo base_url(); ?>panen">Hasil Panen Ikan</a></h1>
+                <p>Proses pembudidayaan ikan di Teluk Awur, Jepara menghasilkan jumlah total panen ikan yang dicatat dalam
+                    Sistem Monitoring Biomassa Ikan. Pencatatan tersebut meliputi jenis biota, tanggal panen, panjang ikan, bobot ikan,
+                    tingkat kematian, dan nama keramba.
+                </p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 py-5">
-                <img class="w-100" src="<?php echo base_url() ?>tema/img/jenis_ikan.jpg" alt="gambar alam">
+                <img class="w-100" src="<?php echo base_url(); ?>tema/img/jenis_ikan.jpg" alt="keramba">
             </div>
             <div class="col-md-8 py-5">
-                <h1 class="fish"><a href="<?php echo base_url(); ?>login">Jenis ikan yang sedang dibudidayakan
+                <h1 class="fish"><a href="<?php echo base_url(); ?>keramba">Jenis Ikan yang Dibudidayakan
                         pada KJABB</a></h1>
-                <p>Pada keramba KJABB Karimunjawa terdapat satu biota yaitu kerapu macan. Yang mana umurnya masih dua bulan.</p>
+                <p>Keramba KJABB yang dipasang pada Teluk Awur, Jepara berjumlah 3 buah dan masing-masing keramba memiliki
+                    diameter 16 meter. Dalam keramba tersebut, dibudidayakan jenis-jenis ikan dan di antaranya ialah ikan kerapu
+                    dan ikan bandeng.
+                </p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4 py-5">
-                <img class="w-100" src="<?php echo base_url() ?>tema/img/Pakan.jpg" alt="gambar alam">
+                <img class="w-100" src="<?php echo base_url(); ?>tema/img/Pakan.jpg" alt="pakan ikan">
             </div>
             <div class="col-md-8 py-5">
-                <h1 class="feed"><a href="<?php echo base_url(); ?>login">Informasi Pakan Pada budidaya
-                        ikan di KJABB</a></h1>
-                <p>Pakan yang digunakan di budidaya Kermba Jaring Apung Bulat Bertingkat (KJABB) ini merupakan pakan jenis runcah dan pelet. Pakan pelet merupakan pakan kualitas baik begitu juga dengan pakan runcah yang diambil dari potonga-potinga ikan segar </p>
+                <h1 class="feed"><a href="<?php echo base_url(); ?>pakan">Informasi Pakan Ikan</a></h1>
+                <p>Pakan yang digunakan di budidaya Kermba Jaring Apung Bulat Bertingkat (KJABB) ini merupakan pakan jenis runcah dan pelet. 
+                    Pakan pelet merupakan pakan kualitas baik begitu juga dengan pakan runcah yang diambil dari potongan-potongan ikan segar. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 py-5">
+                <img class="w-100" src="<?php echo base_url(); ?>tema/img/budidaya.jpg" alt="budidaya">
+            </div>
+            <div class="col-md-8 py-5">
+                <h1 class="measure"><a href="<?php echo base_url(); ?>pengukuran_ikan">Proses Sampling Pengukuran Ikan</a></h1>
+                <p>Ikan yang telah dibudidayakan dalam KJABB nantinya akan diambil sejumlah sampelnya untuk mengukur tingkat kehidupan
+                    serta tingkat kematian dari suatu keramba. Sehingga, bisa didapat <i>survival rate</i> dari proses budidaya ikan pada KJABB.
+                </p>
             </div>
         </div>
     </main>

@@ -11,7 +11,7 @@
 
 <body id="bg-signup">
     <header>
-        <div class="container justify-content-center">
+        <div class="container justify-content-center" style="margin-left: 44%;">
             <div class="header">
                 <nav class="navbar">
                     <div class="container-fluid justify-content-center ">

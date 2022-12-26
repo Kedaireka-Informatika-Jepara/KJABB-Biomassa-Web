@@ -24,7 +24,7 @@
                             <li><a href="<?php echo base_url(); ?>biota">Biota</a></li>
                             <li><a href="<?php echo base_url(); ?>pakan">Pakan</a></li>
                             <li><a href="<?php echo base_url(); ?>keramba">Keramba</a></li>
-                            <li><a href="<?php echo base_url(); ?>pengukuran_ikan">Pengukuran</a></li>
+                            <li><a href="<?php echo base_url(); ?>pengukuranikan">Pengukuran</a></li>
                             <li><a href="<?php echo base_url(); ?>panen">Panen</a></li>
                             <li><a href="<?php echo base_url(); ?>logout"><b><u>Log Out</u></b></a></li>
                         </ul>

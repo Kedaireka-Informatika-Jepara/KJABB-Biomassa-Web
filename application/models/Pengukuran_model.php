@@ -5,6 +5,12 @@ class Pengukuran_model extends CI_Model
     public function getPengukuran($biota_id)
     {
         return $this->db->order_by('tanggal_ukur', 'DESC')->get_where('pengukuran', ['biota_id' => $biota_id], 10)->result_array();
+
+        if ($biota_id === null) {
+            return $this->db->get_where('pengukuran', ['biota_id' => $biota_id])->result_array();
+        } else {
+            return $this->db->get_where('biota', ['biota_id' => $biota_id])->result_array();
+        }
     }
 
 
