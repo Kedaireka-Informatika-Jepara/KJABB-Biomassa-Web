@@ -113,16 +113,17 @@ h1 {
     width: 100%;
 }
 
-footer {
+footer, .container {
     position: fixed;
     bottom: 0;
+    padding: 0px 100px;
 
 }
 
 .footer-awur {
-    box-sizing: border-box;
-	width: 100%;
-	text-align: left;
-	padding: 50px 50px 60px 50px;
-	margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }

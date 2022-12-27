@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 23 Des 2022 pada 17.32
+-- Waktu pembuatan: 27 Des 2022 pada 20.25
 -- Versi server: 10.5.18-MariaDB-cll-lve
 -- Versi PHP: 7.4.33
 
@@ -58,7 +58,8 @@ INSERT INTO `biota` (`biota_id`, `jenis_biota`, `bobot`, `panjang`, `jumlah_bibi
 (158, 'kerapu macan', 20.00, 15.00, 2000, '2022-12-14', NULL, 118),
 (159, 'Kerapu macan', 10.00, 10.00, 3000, '2022-12-01', '2022-12-16', 120),
 (160, 'Kerapu Batik', 10.00, 10.00, 2000, '2022-12-01', NULL, 120),
-(161, 'Kerapu Cantang', 10.00, 10.00, 4000, '2022-12-16', NULL, 120);
+(161, 'Kerapu Cantang', 10.00, 10.00, 4000, '2022-12-16', NULL, 120),
+(162, 'iwak lele', 2.50, 0.90, 100, '2022-12-23', '2022-12-31', 121);
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,7 @@ INSERT INTO `biota` (`biota_id`, `jenis_biota`, `bobot`, `panjang`, `jumlah_bibi
 CREATE TABLE `detail_feeding` (
   `detail_id` int(11) NOT NULL,
   `ukuran_tebar` float(5,2) NOT NULL,
+  `banyak_pakan` float(5,2) NOT NULL,
   `jam_feeding` time NOT NULL,
   `pakan_id` int(11) NOT NULL,
   `activity_id` int(11) NOT NULL
@@ -78,10 +80,15 @@ CREATE TABLE `detail_feeding` (
 -- Dumping data untuk tabel `detail_feeding`
 --
 
-INSERT INTO `detail_feeding` (`detail_id`, `ukuran_tebar`, `jam_feeding`, `pakan_id`, `activity_id`) VALUES
-(14, 200.00, '06:30:00', 13, 22),
-(24, 22.00, '14:04:00', 12, 30),
-(25, 10.00, '06:02:00', 12, 32);
+INSERT INTO `detail_feeding` (`detail_id`, `ukuran_tebar`, `banyak_pakan`, `jam_feeding`, `pakan_id`, `activity_id`) VALUES
+(14, 200.00, 0.00, '06:30:00', 13, 22),
+(24, 22.00, 0.00, '14:04:00', 12, 30),
+(25, 10.00, 0.00, '06:02:00', 12, 32),
+(26, 20.00, 0.00, '14:07:00', 12, 32),
+(27, 20.00, 0.00, '20:43:00', 12, 34),
+(28, 1.00, 0.00, '20:45:00', 12, 34),
+(29, 20.00, 0.00, '20:47:00', 12, 32),
+(30, 20.00, 0.00, '22:03:00', 12, 32);
 
 -- --------------------------------------------------------
 
@@ -106,7 +113,9 @@ INSERT INTO `feeding` (`activity_id`, `tanggal_feeding`, `keramba_id`, `user_id`
 (22, '2021-12-26', 24, 1),
 (30, '2022-06-17', 18, 1),
 (31, '2022-12-15', 118, 1),
-(32, '2022-12-16', 120, 1);
+(32, '2022-12-16', 120, 1),
+(33, '2022-12-23', 121, 1),
+(34, '2022-12-25', 118, 1);
 
 -- --------------------------------------------------------
 
@@ -135,7 +144,8 @@ INSERT INTO `keramba` (`keramba_id`, `nama`, `ukuran`, `tanggal_install`, `user_
 (116, 'karimum', 10.00, '2022-05-01', 3),
 (117, 'KJABB', 16.00, '2022-05-21', 3),
 (118, 'jantan kerapu ', 105.00, '0000-00-00', 1),
-(120, 'KJABB Jepara', 25.00, '2022-11-21', 1);
+(120, 'KJABB Jepara', 25.00, '2022-11-21', 1),
+(121, 'keramba milenial ', 19.21, '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -194,7 +204,8 @@ INSERT INTO `panen` (`activity_id`, `tanggal_panen`, `panjang`, `bobot`, `jumlah
 (14, '2022-05-07', 25.00, 18.00, 5, 0, 150, 115, 3),
 (15, '2022-05-20', 13.00, 16.00, 3, 0, 151, 115, 3),
 (16, '2022-05-21', 21.00, 14.00, 7, 1, 149, 115, 3),
-(17, '2022-12-16', 40.00, 200.00, 2000, 500, 159, 120, 1);
+(17, '2022-12-16', 40.00, 200.00, 2000, 500, 159, 120, 1),
+(18, '2022-12-31', 50.00, 999.99, 300, 200, 162, 121, 1);
 
 -- --------------------------------------------------------
 
@@ -237,7 +248,24 @@ INSERT INTO `pengukuran` (`pengukuran_id`, `panjang`, `bobot`, `tanggal_ukur`, `
 (56, 22.00, 30.00, '2022-02-28', 143, 1),
 (57, 24.00, 34.00, '2022-04-01', 143, 1),
 (58, 15.00, 50.00, '2022-12-16', 160, 1),
-(59, 20.00, 100.00, '2022-12-16', 160, 1);
+(59, 20.00, 100.00, '2022-12-16', 160, 1),
+(60, 20.00, 20.00, '2022-12-24', 161, 1),
+(61, 23.00, 50.00, '2022-12-27', 161, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `perhitungan`
+--
+
+CREATE TABLE `perhitungan` (
+  `perhitungan_id` int(11) NOT NULL,
+  `hidup` int(11) NOT NULL,
+  `mati` int(11) NOT NULL,
+  `tanggal_hitung` date NOT NULL,
+  `biota_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -276,7 +304,8 @@ INSERT INTO `user` (`user_id`, `username`, `password`) VALUES
 (48, '', ''),
 (49, '', ''),
 (50, 'aqsya', 'aqsya123'),
-(51, 'hai', '202cb962ac59075b964b07152d234b70');
+(51, 'hai', '202cb962ac59075b964b07152d234b70'),
+(52, '', '');
 
 --
 -- Indexes for dumped tables
@@ -337,6 +366,14 @@ ALTER TABLE `pengukuran`
   ADD KEY `FK_Pengukur` (`user_id`);
 
 --
+-- Indeks untuk tabel `perhitungan`
+--
+ALTER TABLE `perhitungan`
+  ADD PRIMARY KEY (`perhitungan_id`),
+  ADD KEY `FKBiotaHitung` (`biota_id`) USING BTREE,
+  ADD KEY `FKPenghitung` (`user_id`) USING BTREE;
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -350,25 +387,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `biota`
 --
 ALTER TABLE `biota`
-  MODIFY `biota_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `biota_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT untuk tabel `detail_feeding`
 --
 ALTER TABLE `detail_feeding`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `feeding`
 --
 ALTER TABLE `feeding`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `keramba`
 --
 ALTER TABLE `keramba`
-  MODIFY `keramba_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `keramba_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT untuk tabel `pakan`
@@ -380,19 +417,25 @@ ALTER TABLE `pakan`
 -- AUTO_INCREMENT untuk tabel `panen`
 --
 ALTER TABLE `panen`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengukuran`
 --
 ALTER TABLE `pengukuran`
-  MODIFY `pengukuran_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `pengukuran_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT untuk tabel `perhitungan`
+--
+ALTER TABLE `perhitungan`
+  MODIFY `perhitungan_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

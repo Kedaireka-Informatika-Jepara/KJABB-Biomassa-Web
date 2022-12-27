@@ -71,6 +71,8 @@ class Perhitungan extends Api_Controller
 
         $input['mati'] = $this->post('mati');
 
+        $input['survival_rate'] = $this->post('survival_rate');
+
         $input['tanggal_hitung'] = $this->post('tanggal_hitung');
 
         $input['biota_id'] = $this->post('biota_id');
@@ -99,6 +101,8 @@ class Perhitungan extends Api_Controller
         $input['hidup'] = $this->put('hidup');
 
         $input['mati'] = $this->put('mati');
+
+        $input['survival_rate'] = $this->put('survival_rate');
 
         $input['tanggal_hitung'] = $this->put('tanggal_hitung');
 
