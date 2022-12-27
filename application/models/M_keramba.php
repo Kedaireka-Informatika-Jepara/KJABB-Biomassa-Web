@@ -6,7 +6,7 @@ class M_keramba extends CI_Model
 
     function tampil_data()
     {
-
+        $this->db->order_by('tanggal_install asc');
         return $this->db->get('keramba');
     }
 

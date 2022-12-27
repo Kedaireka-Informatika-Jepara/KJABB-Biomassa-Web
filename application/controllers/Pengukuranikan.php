@@ -36,8 +36,6 @@ class Pengukuranikan extends CI_Controller
     public function update()
     {
         $data = [
-            'biota_id' => htmlspecialchars($this->input->post('biota_id', true)),
-            'jenis_biota' => htmlspecialchars($this->input->post('jenis-bio', true)),
             'panjang' => htmlspecialchars($this->input->post('panjang', true)),
             'bobot' => htmlspecialchars($this->input->post('bobot', true)),
             'tanggal_ukur' => htmlspecialchars($this->input->post('tggl-ukur', true)),

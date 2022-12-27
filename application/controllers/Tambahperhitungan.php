@@ -29,7 +29,7 @@ class Tambahperhitungan extends CI_Controller
         $this->form_validation->set_rules('tggl-hitung', 'Tanggal Hitung', 'required|trim', [
             'required' => 'Tanggal hitung harus diisi'
         ]);
-        $this->form_validation->set_rules('use-id', 'User-id', 'required|trim', [
+        $this->form_validation->set_rules('use_id', 'User_id', 'required|trim', [
             'required' => 'User ID harus diisi'
         ]);
 

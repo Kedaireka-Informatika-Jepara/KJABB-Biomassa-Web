@@ -22,6 +22,7 @@
 .nv ul{
     float: right;
     
+    
 }
 .nv ul li{
     display: inline-block;
@@ -34,7 +35,7 @@
     color: white;
 }
 .nv ul li a:hover{
-    color:aqua;
+    color:white;
 }
 .nv ul li a::after{
     color:rgb(0, 0, 0);

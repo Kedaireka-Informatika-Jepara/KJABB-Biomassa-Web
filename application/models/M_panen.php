@@ -28,6 +28,8 @@ class M_panen extends CI_Model
         $this->db->from('panen');
         $this->db->join('biota', 'biota.biota_id = panen.biota_id');
         $this->db->join('keramba', 'keramba.keramba_id = panen.keramba_id');
+        $this->db->order_by('panen.tanggal_panen asc');
+        
         return $query = $this->db->get();
         
     }

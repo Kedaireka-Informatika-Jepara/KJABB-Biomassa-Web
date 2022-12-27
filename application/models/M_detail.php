@@ -1,16 +1,22 @@
 <?php
 
-class M_pengukuran extends CI_Model
+class M_detail extends CI_Model
 {
     function tampil_data()
     {
 
         // return $this->db->get('pengukuran');
 
-        $this->db->select('pengukuran.*, biota.biota_id, biota.jenis_biota');
-        $this->db->from('pengukuran');
-        $this->db->join('biota', 'pengukuran.biota_id = biota.biota_id');
-        $this->db->order_by('pengukuran.tanggal_ukur asc');
+        // $this->db->select('*');
+        // $this->db->from('feeding');
+        // $this->db->join('keramba', 'feeding.keramba_id = keramba.keramba_id');
+        // $query = $this->db->get();
+        // return $query;
+
+        $this->db->select('feeding.*, keramba.keramba_id, keramba.nama');
+        $this->db->from('feeding');
+        $this->db->join('keramba', 'feeding.keramba_id = keramba.keramba_id');
+        $this->db->order_by('feeding.tanggal_feeding');
         $query = $this->db->get();
         return $query;
 
@@ -32,4 +38,5 @@ class M_pengukuran extends CI_Model
         $this->db->where($where);
         $this->db->update($table, $data);
     }
+
 }

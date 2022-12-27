@@ -27,10 +27,10 @@ class Tambahpengukuran extends CI_Controller
         $this->form_validation->set_rules('tggl-ukur', 'Tggl-ukur', 'required|trim', [
             'required' => 'Tanggal ukur harus diisi'
         ]);
-        $this->form_validation->set_rules('bio-id', 'Bio-id', 'required|trim', [
+        $this->form_validation->set_rules('bio_id', 'Bio_id', 'required|trim', [
             'required' => 'Biota ID harus diisi'
         ]);
-        $this->form_validation->set_rules('use-id', 'User-id', 'required|trim', [
+        $this->form_validation->set_rules('use_id', 'User_id', 'required|trim', [
             'required' => 'User ID harus diisi'
         ]);
 

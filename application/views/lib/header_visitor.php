@@ -21,9 +21,11 @@
                     <div class="nv">
                         <h1><a href="<?php echo base_url(); ?>homepage">MONITORING BIOMASSA IKAN</a></h1>
                         <ul>
+                            <li><a href="<?php echo base_url(); ?>keramba">Keramba</a></li>
                             <li><a href="<?php echo base_url(); ?>login">Biota</a></li>
                             <li><a href="<?php echo base_url(); ?>login">Pakan</a></li>
-                            <li><a href="<?php echo base_url(); ?>login">Keramba</a></li>
+                            <li><a href="<?php echo base_url(); ?>pengukuranikan">Pengukuran</a></li>
+                            <li><a href="<?php echo base_url(); ?>perhitunganikan">Perhitungan</a></li>
                             <li><a href="<?php echo base_url(); ?>login">Panen</a></li>
                             <li><a href="<?php echo base_url(); ?>login"><b><u>Log In</u></b></a></li>
                         </ul>

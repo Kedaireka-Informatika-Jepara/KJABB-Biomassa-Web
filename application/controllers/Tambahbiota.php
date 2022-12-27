@@ -15,34 +15,34 @@ class Tambahbiota extends CI_Controller
 
     public function registration()
     {
-        $this->form_validation->set_rules('id', 'Biota ID', 'required|trim|integer', [
-            'required' => 'ID Biota harus diisi',
-            'integer' => 'Masukan harus angka'
-        ]);
-        $this->form_validation->set_rules('jenis', 'Jenis', 'required|trim', [
-            'required' => 'Jenis biota harus diisi'
-        ]);
-        $this->form_validation->set_rules('bobot', 'Bobot', 'required|trim', [
-            'required' => 'Bobot ikan harus diisi'
-        ]);
-        $this->form_validation->set_rules('jumlah', 'Jumlah', 'required|trim|integer', [
-            'required' => 'Jumlah ikan harus diisi'
-        ]);
-        $this->form_validation->set_rules('panjang', 'Panjang', 'required|trim', [
-            'required' => 'Panjang ikan harus diisi',
-            'integer' => 'Masukan harus angka'
-        ]);
-        $this->form_validation->set_rules('tggl-tbr', 'Tggl-tbr', 'required|trim', [
-            'required' => 'Tanggal tebar harus diisi'
-        ]);
-        $this->form_validation->set_rules('asl-keramba', 'Asl-keramba', 'required|trim|integer', [
-            'required' => 'Asal keramba harus diisi',
-            'integer' => 'Masukan harus angka'
-        ]);
+        // $this->form_validation->set_rules('id', 'Biota ID', 'required|trim|integer', [
+        //     'required' => 'ID Biota harus diisi',
+        //     'integer' => 'Masukan harus angka'
+        // ]);
+        // $this->form_validation->set_rules('jenis', 'Jenis', 'required|trim', [
+        //     'required' => 'Jenis biota harus diisi'
+        // ]);
+        // $this->form_validation->set_rules('bobot', 'Bobot', 'required|trim', [
+        //     'required' => 'Bobot ikan harus diisi'
+        // ]);
+        // $this->form_validation->set_rules('jumlah', 'Jumlah', 'required|trim|integer', [
+        //     'required' => 'Jumlah ikan harus diisi'
+        // ]);
+        // $this->form_validation->set_rules('panjang', 'Panjang', 'required|trim', [
+        //     'required' => 'Panjang ikan harus diisi',
+        //     'integer' => 'Masukan harus angka'
+        // ]);
+        // $this->form_validation->set_rules('tggl-tbr', 'Tggl-tbr', 'required|trim', [
+        //     'required' => 'Tanggal tebar harus diisi'
+        // ]);
+        // $this->form_validation->set_rules('asl-keramba', 'Asl-keramba', 'required|trim|integer', [
+        //     'required' => 'Asal keramba harus diisi',
+        //     'integer' => 'Masukan harus angka'
+        // ]);
 
-        if ($this->form_validation->run() == false) {
-            $this->load->view('user/tambah_biota');
-        } else {
+        // if ($this->form_validation->run() == false) {
+        //     $this->load->view('user/tambah_biota');
+        // } else {
 
             $data = [
                 'biota_id' => htmlspecialchars($this->input->post('id', true)),
@@ -61,5 +61,4 @@ class Tambahbiota extends CI_Controller
             redirect('biota');
             return true;
         }
-    }
 }

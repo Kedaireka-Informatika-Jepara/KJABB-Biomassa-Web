@@ -8,6 +8,7 @@ class M_biota extends CI_Model
         $this->db->select('*');
         $this->db->from('biota');
         $this->db->join('keramba', 'keramba.keramba_id = biota.keramba_id');
+        $this->db->order_by('biota.tanggal_tebar asc');
         $query = $this->db->get();
         return $query;
     }
